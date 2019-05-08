@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvAccel"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvBarometer"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvGyro"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvFingerprint"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvGeo"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvHall"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvHR"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvProximity"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvLight"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="TextView" />
+
+
+    <TextView
+        android:id="@+id/tvGPS"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="TextView" />
+
+
+
+    <Button
+        android:id="@+id/AccelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ASensor dla pomiaru przyśpieszenia" />
+
+    <Button
+        android:id="@+id/BaroButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ASensor dla pomiaru natężenia światła" />
+
+    <Button
+        android:id="@+id/FingerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ASensor dla pomiaru przyśpieszenia" />
+
+    <Button
+        android:id="@+id/GyroButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GPS z informacjami o lokalizacji" />
+
+    <Button
+        android:id="@+id/GeoButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ASensor dla pomiaru natężenia światła" />
+
+
+
+    <Button
+        android:id="@+id/HallButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GPS z informacjami o lokalizacji" />
+
+    <Button
+        android:id="@+id/HRButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ASensor dla pomiaru natężenia światła" />
+
+    <Button
+        android:id="@+id/ProximityButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ASensor dla pomiaru natężenia światła" />
+
+
+    <Button
+        android:id="@+id/LightButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ASensor dla pomiaru natężenia światła" />
+
+
+    <Button
+        android:id="@+id/GpsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GPS z informacjami o lokalizacji" />
+
+</LinearLayout>

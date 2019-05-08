@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">swim_zad4_b</string>
+
+    <string name="accelStatus">Accelometer: </string>
+    <string name="baroStatus">Barometer: </string>
+    <string name="fingerStatus">Fingerprint: </string>
+    <string name="gyroStatus">Gyro sensor: </string>
+    <string name="geoStatus">Geo sensor: </string>
+    <string name="hallStatus">Hall sensor: </string>
+    <string name="hrStatus">HR sensor: </string>
+    <string name="proxStatus">Proximity sensor: </string>
+    <string name="lightStatus">Light sensor: </string>
+    <string name="gpsStatus">GPS status: </string>
+    <string name="txt_avail">DOSTĘPNY</string>
+    <string name="txt_unavail">NIEDOSTĘPNY</string>
+</resources>
