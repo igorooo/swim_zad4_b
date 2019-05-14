@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
@@ -68,70 +68,86 @@
         android:layout_height="40dp"
         android:text="TextView" />
 
-
-
-    <Button
-        android:id="@+id/AccelButton"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ASensor dla pomiaru przyśpieszenia" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/BaroButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ASensor dla pomiaru natężenia światła" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/FingerButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ASensor dla pomiaru przyśpieszenia" />
+            <Button
+                android:id="@+id/AccelButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Accelerometer" />
 
-    <Button
-        android:id="@+id/GyroButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="GPS z informacjami o lokalizacji" />
+            <Button
+                android:id="@+id/BaroButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Barometr" />
 
-    <Button
-        android:id="@+id/GeoButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ASensor dla pomiaru natężenia światła" />
+            <Button
+                android:id="@+id/FingerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FingerPrint" />
 
+            <Button
+                android:id="@+id/GyroButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Żyroskop" />
 
-
-    <Button
-        android:id="@+id/HallButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="GPS z informacjami o lokalizacji" />
-
-    <Button
-        android:id="@+id/HRButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ASensor dla pomiaru natężenia światła" />
-
-    <Button
-        android:id="@+id/ProximityButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ASensor dla pomiaru natężenia światła" />
+            <Button
+                android:id="@+id/GeoButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Obrót geomagnetyczny" />
 
 
-    <Button
-        android:id="@+id/LightButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ASensor dla pomiaru natężenia światła" />
+
+            <Button
+                android:id="@+id/HallButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pole magnetyczne" />
+
+            <Button
+                android:id="@+id/HRButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Heart Rate" />
+
+            <Button
+                android:id="@+id/ProximityButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Proximity sensor" />
 
 
-    <Button
-        android:id="@+id/GpsButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="GPS z informacjami o lokalizacji" />
+            <Button
+                android:id="@+id/LightButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ASensor dla pomiaru natężenia światła" />
+
+
+            <Button
+                android:id="@+id/GpsButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GPS z informacjami o lokalizacji" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
 
 </LinearLayout>

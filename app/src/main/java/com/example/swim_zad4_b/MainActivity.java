@@ -1,9 +1,11 @@
 package com.example.swim_zad4_b;
 
+import android.app.KeyguardManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.hardware.fingerprint.FingerprintManager;
 import android.location.LocationManager;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         HRB = (Button) findViewById(R.id.HRButton);
         ProxB = (Button) findViewById(R.id.ProximityButton);
         LightB = (Button) findViewById(R.id.LightButton);
-        AccelB = (Button) findViewById(R.id.AccelButton);
+        GPSB = (Button) findViewById(R.id.GpsButton);
 
 
         AccelB.setOnClickListener(new View.OnClickListener() {
@@ -134,8 +136,11 @@ public class MainActivity extends AppCompatActivity {
     private void SetEnableInfo(){
 
         final SensorManager sm = (SensorManager)getSystemService(SENSOR_SERVICE);
+        final FingerprintManager fpm = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
+        final KeyguardManager kgm = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
 
 
+        boolean enb1,enb2;
         boolean enabled = !sm.getSensorList(Sensor.TYPE_ACCELEROMETER).isEmpty();
         tvAccel.setText(getString(R.string.accelStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
         tvAccel.setTextColor(enabled ? Color.GREEN : Color.RED);
@@ -146,10 +151,24 @@ public class MainActivity extends AppCompatActivity {
         tvBaro.setTextColor(enabled ? Color.GREEN : Color.RED);
         findViewById(R.id.BaroButton).setEnabled(enabled);
 
-        enabled = !FingerprintManagerCompat.from(this).hasEnrolledFingerprints(); //FingerPrint here
+        enabled = fpm.isHardwareDetected();     //FingerprintManagerCompat.from(this).hasEnrolledFingerprints(); //FingerPrint here
+        enb1 = fpm.hasEnrolledFingerprints();
+        enb2 = kgm.isKeyguardSecure();
         tvFinger.setText(getString(R.string.fingerStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
         tvFinger.setTextColor(enabled ? Color.GREEN : Color.RED);
         findViewById(R.id.FingerButton).setEnabled(enabled);
+        if(!enb1){
+            tvFinger.setText(getString(R.string.fingerStatus) + " brak zaresjtrowanych odciskow");
+            tvFinger.setTextColor(Color.YELLOW);
+            FingerB.setEnabled(false);
+        }
+        if(!enb2){
+            tvFinger.setText(getString(R.string.fingerStatus) + " Keyguard secure not enabled");
+            tvFinger.setTextColor(Color.YELLOW);
+            FingerB.setEnabled(false);
+        }
+
+
 
         enabled = !sm.getSensorList(Sensor.TYPE_GYROSCOPE).isEmpty();
         tvGyro.setText(getString(R.string.gyroStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
@@ -184,20 +203,25 @@ public class MainActivity extends AppCompatActivity {
         final LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        tvGPS.setText(getString(R.string.lightStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
+        tvGPS.setText(getString(R.string.gpsStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
         tvGPS.setTextColor(enabled ? Color.GREEN : Color.RED);
-        findViewById(R.id.LightButton).setEnabled(enabled);
+        findViewById(R.id.GpsButton).setEnabled(enabled);
 
     }
 
     public final void startAktywnosci(final View v){
         Intent in;
 
+        in = new Intent();
         if(v.getId() == R.id.GpsButton){
             in = new Intent(this,GPS.class);
         }
 
-        else{
+        else if(v.getId() == R.id.FingerButton){
+            in = new Intent(this, FingerPrint.class);
+        }
+
+        else {
             in = new Intent(this, ASensor.class);
 
             if(v.getId() == R.id.LightButton){
@@ -206,6 +230,26 @@ public class MainActivity extends AppCompatActivity {
 
             else if(v.getId() == R.id.AccelButton){
                 in.putExtra("sensorType",Sensor.TYPE_ACCELEROMETER);
+            }
+
+            else if(v.getId() == R.id.GyroButton){
+                in.putExtra("sensorType",Sensor.TYPE_GYROSCOPE);
+            }
+
+            else if(v.getId() == R.id.GeoButton){
+                in.putExtra("sensorType",Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR);
+            }
+
+            else if(v.getId() == R.id.HallButton){
+                in.putExtra("sensorType",Sensor.TYPE_MAGNETIC_FIELD);
+            }
+
+            else if(v.getId() == R.id.HRButton){
+                in.putExtra("sensorType",Sensor.TYPE_HEART_RATE);
+            }
+
+            else if(v.getId() == R.id.ProximityButton){
+                in.putExtra("sensorType",Sensor.TYPE_PROXIMITY);
             }
         }
 
