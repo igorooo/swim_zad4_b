@@ -18,7 +18,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView tvAccel, tvBaro, tvFinger, tvGyro, tvGeo, tvHall, tvHR, tvProx, tvLight, tvGPS;
-    Button AccelB, BaroB, FingerB, GyroB, GeoB, HallB, HRB,ProxB, LightB, GPSB;
+    Button AccelB, BaroB, FingerB, GyroB, GeoB, HallB, HRB,ProxB, LightB, GPSB,SeisB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         ProxB = (Button) findViewById(R.id.ProximityButton);
         LightB = (Button) findViewById(R.id.LightButton);
         GPSB = (Button) findViewById(R.id.GpsButton);
+        SeisB = (Button) findViewById(R.id.SeisButton);
 
 
         AccelB.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +118,15 @@ public class MainActivity extends AppCompatActivity {
                 startAktywnosci(v);
             }
         });
+
+        SeisB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAktywnosci(v);
+            }
+        });
+
+        SeisB.setBackgroundColor(Color.GREEN);
 
 
     }
@@ -219,6 +229,10 @@ public class MainActivity extends AppCompatActivity {
 
         else if(v.getId() == R.id.FingerButton){
             in = new Intent(this, FingerPrint.class);
+        }
+
+        else if(v.getId() == R.id.SeisButton){
+            in = new Intent(this, Seismograph.class);
         }
 
         else {
