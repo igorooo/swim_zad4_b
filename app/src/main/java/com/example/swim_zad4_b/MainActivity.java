@@ -3,6 +3,7 @@ package com.example.swim_zad4_b;
 import android.app.KeyguardManager;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.hardware.fingerprint.FingerprintManager;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView tvAccel, tvBaro, tvFinger, tvGyro, tvGeo, tvHall, tvHR, tvProx, tvLight, tvGPS;
     Button AccelB, BaroB, FingerB, GyroB, GeoB, HallB, HRB,ProxB, LightB, GPSB,SeisB;
+    Drawable d;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         LightB = (Button) findViewById(R.id.LightButton);
         GPSB = (Button) findViewById(R.id.GpsButton);
         SeisB = (Button) findViewById(R.id.SeisButton);
+
+
+
 
 
         AccelB.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +131,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        SeisB.setBackgroundColor(Color.GREEN);
+
+
+
 
 
     }
@@ -153,28 +160,28 @@ public class MainActivity extends AppCompatActivity {
         boolean enb1,enb2;
         boolean enabled = !sm.getSensorList(Sensor.TYPE_ACCELEROMETER).isEmpty();
         tvAccel.setText(getString(R.string.accelStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        tvAccel.setTextColor(enabled ? Color.GREEN : Color.RED);
-        findViewById(R.id.AccelButton).setEnabled(enabled);
+        AccelB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        AccelB.setEnabled(enabled);
 
         enabled = !sm.getSensorList(Sensor.TYPE_PRESSURE).isEmpty();
         tvBaro.setText(getString(R.string.baroStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        tvBaro.setTextColor(enabled ? Color.GREEN : Color.RED);
-        findViewById(R.id.BaroButton).setEnabled(enabled);
+        BaroB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        BaroB.setEnabled(enabled);
 
         enabled = fpm.isHardwareDetected();     //FingerprintManagerCompat.from(this).hasEnrolledFingerprints(); //FingerPrint here
         enb1 = fpm.hasEnrolledFingerprints();
         enb2 = kgm.isKeyguardSecure();
         tvFinger.setText(getString(R.string.fingerStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        tvFinger.setTextColor(enabled ? Color.GREEN : Color.RED);
-        findViewById(R.id.FingerButton).setEnabled(enabled);
+        FingerB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        FingerB.setEnabled(enabled);
         if(!enb1){
             tvFinger.setText(getString(R.string.fingerStatus) + " brak zaresjtrowanych odciskow");
-            tvFinger.setTextColor(Color.YELLOW);
+            FingerB.setBackgroundColor(Color.YELLOW);
             FingerB.setEnabled(false);
         }
         if(!enb2){
             tvFinger.setText(getString(R.string.fingerStatus) + " Keyguard secure not enabled");
-            tvFinger.setTextColor(Color.YELLOW);
+            FingerB.setBackgroundColor(Color.YELLOW);
             FingerB.setEnabled(false);
         }
 
@@ -182,40 +189,40 @@ public class MainActivity extends AppCompatActivity {
 
         enabled = !sm.getSensorList(Sensor.TYPE_GYROSCOPE).isEmpty();
         tvGyro.setText(getString(R.string.gyroStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        tvGyro.setTextColor(enabled ? Color.GREEN : Color.RED);
-        findViewById(R.id.LightButton).setEnabled(enabled);
+        GyroB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        GyroB.setEnabled(enabled);
 
         enabled = !sm.getSensorList(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR).isEmpty();
         tvGeo.setText(getString(R.string.lightStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        tvGeo.setTextColor(enabled ? Color.GREEN : Color.RED);
-        findViewById(R.id.GeoButton).setEnabled(enabled);
+        GeoB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        GeoB.setEnabled(enabled);
 
         enabled = !sm.getSensorList(Sensor.TYPE_MAGNETIC_FIELD).isEmpty();
         tvHall.setText(getString(R.string.hallStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        tvHall.setTextColor(enabled ? Color.GREEN : Color.RED);
-        findViewById(R.id.HallButton).setEnabled(enabled);
+        HallB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        HallB.setEnabled(enabled);
 
         enabled = !sm.getSensorList(Sensor.TYPE_HEART_RATE).isEmpty();
         tvHR.setText(getString(R.string.hrStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        tvHR.setTextColor(enabled ? Color.GREEN : Color.RED);
-        findViewById(R.id.HRButton).setEnabled(enabled);
+        HRB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        HRB.setEnabled(enabled);
 
         enabled = !sm.getSensorList(Sensor.TYPE_PROXIMITY).isEmpty();
         tvProx.setText(getString(R.string.proxStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        tvProx.setTextColor(enabled ? Color.GREEN : Color.RED);
-        findViewById(R.id.ProximityButton).setEnabled(enabled);
+        ProxB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        ProxB.setEnabled(enabled);
 
         enabled = !sm.getSensorList(Sensor.TYPE_LIGHT).isEmpty();
         tvLight.setText(getString(R.string.lightStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        tvLight.setTextColor(enabled ? Color.GREEN : Color.RED);
-        findViewById(R.id.LightButton).setEnabled(enabled);
+        LightB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        LightB.setEnabled(enabled);
 
         final LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
         tvGPS.setText(getString(R.string.gpsStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        tvGPS.setTextColor(enabled ? Color.GREEN : Color.RED);
-        findViewById(R.id.GpsButton).setEnabled(enabled);
+        GPSB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        GPSB.setEnabled(enabled);
 
     }
 

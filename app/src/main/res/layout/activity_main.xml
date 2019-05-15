@@ -7,66 +7,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvAccel"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/tvBarometer"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/tvGyro"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/tvFingerprint"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/tvGeo"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/tvHall"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/tvHR"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/tvProximity"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/tvLight"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="TextView" />
-
-
-    <TextView
-        android:id="@+id/tvGPS"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="TextView" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -81,7 +21,8 @@
                 android:id="@+id/SeisButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sejsmograf" />
+                android:text="Sejsmograf"
+                android:background="@drawable/ic_button"/>
 
             <Button
                 android:id="@+id/AccelButton"
@@ -148,6 +89,87 @@
                 android:text="GPS z informacjami o lokalizacji" />
 
         </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvAccel"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvBarometer"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvGyro"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvFingerprint"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvGeo"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvHall"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvHR"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvProximity"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvLight"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="TextView" />
+
+
+            <TextView
+                android:id="@+id/tvGPS"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="TextView" />
+
+
+        </LinearLayout>
+
+
+
 
 
     </ScrollView>
