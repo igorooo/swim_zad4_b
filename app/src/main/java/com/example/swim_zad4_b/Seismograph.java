@@ -48,6 +48,8 @@ public class Seismograph extends AppCompatActivity implements SensorEventListene
             startpoints[i] = new DataPoint(i,0);
         }
 
+        this.setTitle("Sejsmograf");
+
 
 
 
@@ -70,7 +72,7 @@ public class Seismograph extends AppCompatActivity implements SensorEventListene
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getGridLabelRenderer().setGridColor(Color.WHITE);
         graph.getGridLabelRenderer().setHorizontalLabelsVisible(false);
-        //graph.getGridLabelRenderer().setVerticalLabelsVisible(false);
+        graph.getGridLabelRenderer().setVerticalLabelsVisible(false);
 
 
 
@@ -127,12 +129,7 @@ public class Seismograph extends AppCompatActivity implements SensorEventListene
             if( Math.abs(y) < 5 && SystemClock.currentThreadTimeMillis() - delay > imgChange){
                 img.setImageResource(R.drawable.ic_ok);
             }
-
-
-
         }
-
-
 
         prev_y = y;
 

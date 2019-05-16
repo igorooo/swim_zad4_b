@@ -21,8 +21,7 @@
                 android:id="@+id/SeisButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sejsmograf"
-                android:background="@drawable/ic_button"/>
+                android:text="Sejsmograf" />
 
             <Button
                 android:id="@+id/AccelButton"
@@ -79,14 +78,14 @@
                 android:id="@+id/LightButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ASensor dla pomiaru natężenia światła" />
+                android:text="Light sensor "/>
 
 
             <Button
                 android:id="@+id/GpsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="GPS z informacjami o lokalizacji" />
+                android:text="GPS" />
 
         </LinearLayout>
 

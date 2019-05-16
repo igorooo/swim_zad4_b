@@ -160,19 +160,20 @@ public class MainActivity extends AppCompatActivity {
         boolean enb1,enb2;
         boolean enabled = !sm.getSensorList(Sensor.TYPE_ACCELEROMETER).isEmpty();
         tvAccel.setText(getString(R.string.accelStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        AccelB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        AccelB.setBackgroundResource(enabled ? R.drawable.ic_button : R.drawable.id_button_red);
+        SeisB.setBackgroundResource(enabled ? R.drawable.ic_button : R.drawable.id_button_red);
         AccelB.setEnabled(enabled);
 
         enabled = !sm.getSensorList(Sensor.TYPE_PRESSURE).isEmpty();
         tvBaro.setText(getString(R.string.baroStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        BaroB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        BaroB.setBackgroundResource(enabled ? R.drawable.ic_button : R.drawable.id_button_red);
         BaroB.setEnabled(enabled);
 
         enabled = fpm.isHardwareDetected();     //FingerprintManagerCompat.from(this).hasEnrolledFingerprints(); //FingerPrint here
         enb1 = fpm.hasEnrolledFingerprints();
         enb2 = kgm.isKeyguardSecure();
         tvFinger.setText(getString(R.string.fingerStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        FingerB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        FingerB.setBackgroundResource(enabled ? R.drawable.ic_button : R.drawable.id_button_red);
         FingerB.setEnabled(enabled);
         if(!enb1){
             tvFinger.setText(getString(R.string.fingerStatus) + " brak zaresjtrowanych odciskow");
@@ -189,39 +190,39 @@ public class MainActivity extends AppCompatActivity {
 
         enabled = !sm.getSensorList(Sensor.TYPE_GYROSCOPE).isEmpty();
         tvGyro.setText(getString(R.string.gyroStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        GyroB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        GyroB.setBackgroundResource(enabled ? R.drawable.ic_button : R.drawable.id_button_red);
         GyroB.setEnabled(enabled);
 
         enabled = !sm.getSensorList(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR).isEmpty();
         tvGeo.setText(getString(R.string.lightStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        GeoB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        GeoB.setBackgroundResource(enabled ? R.drawable.ic_button : R.drawable.id_button_red);
         GeoB.setEnabled(enabled);
 
         enabled = !sm.getSensorList(Sensor.TYPE_MAGNETIC_FIELD).isEmpty();
         tvHall.setText(getString(R.string.hallStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        HallB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        HallB.setBackgroundResource(enabled ? R.drawable.ic_button : R.drawable.id_button_red);
         HallB.setEnabled(enabled);
 
         enabled = !sm.getSensorList(Sensor.TYPE_HEART_RATE).isEmpty();
         tvHR.setText(getString(R.string.hrStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        HRB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        HRB.setBackgroundResource(enabled ? R.drawable.ic_button : R.drawable.id_button_red);
         HRB.setEnabled(enabled);
 
         enabled = !sm.getSensorList(Sensor.TYPE_PROXIMITY).isEmpty();
         tvProx.setText(getString(R.string.proxStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        ProxB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        ProxB.setBackgroundResource(enabled ? R.drawable.ic_button : R.drawable.id_button_red);
         ProxB.setEnabled(enabled);
 
         enabled = !sm.getSensorList(Sensor.TYPE_LIGHT).isEmpty();
         tvLight.setText(getString(R.string.lightStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        LightB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        LightB.setBackgroundResource(enabled ? R.drawable.ic_button : R.drawable.id_button_red);
         LightB.setEnabled(enabled);
 
         final LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
         tvGPS.setText(getString(R.string.gpsStatus) + " " + getString(enabled ? R.string.txt_avail : R.string.txt_unavail));
-        GPSB.setBackgroundColor(enabled ? Color.GREEN : Color.RED);
+        GPSB.setBackgroundResource(enabled ? R.drawable.ic_button : R.drawable.id_button_red);
         GPSB.setEnabled(enabled);
 
     }
